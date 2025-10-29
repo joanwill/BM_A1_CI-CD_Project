@@ -1,0 +1,17 @@
+
+services:
+  backend:
+    image: your-dockerhub-user/tasks-backend:latest
+    environment:
+      - DATABASE_URL=sqlite:///./tasks.db
+      - CORS_ORIGINS=*
+    ports:
+      - "8000:8000"
+  frontend:
+    image: your-dockerhub-user/tasks-frontend:latest
+    environment:
+      - VITE_API_BASE_URL=http://backend:8000
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
