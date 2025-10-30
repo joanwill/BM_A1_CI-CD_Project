@@ -1,4 +1,12 @@
-
 [tool.ruff]
 line-length = 100
-select = ["E","F","I"]
+src = ["."]
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]        # E/F (pycodestyle/pyflakes), I (isort)
+ignore = []                     # add codes to ignore if needed
+
+[tool.ruff.lint.isort]
+known-first-party = ["app", "tests"]
+combine-as-imports = true

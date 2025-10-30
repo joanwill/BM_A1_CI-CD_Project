@@ -1,10 +1,11 @@
 
-from fastapi import FastAPI, Depends, HTTPException
+from fastapi import Depends, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
+
+from . import crud, schemas
 from .config import settings
 from .database import SessionLocal, init_db
-from . import crud, schemas
 
 app = FastAPI(title=settings.APP_NAME)
 

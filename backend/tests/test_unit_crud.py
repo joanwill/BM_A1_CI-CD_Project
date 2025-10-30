@@ -1,8 +1,10 @@
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from app.models import Base
+
 from app import crud, schemas
+from app.models import Base
+
 
 def get_session():
     engine = create_engine("sqlite:///:memory:", connect_args={"check_same_thread": False})
