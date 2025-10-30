@@ -1,4 +1,3 @@
-
 from sqlalchemy.orm import Session
 
 from .models import Task
@@ -7,6 +6,7 @@ from .schemas import TaskCreate
 
 def list_tasks(db: Session):
     return db.query(Task).order_by(Task.id.desc()).all()
+
 
 def create_task(db: Session, data: TaskCreate):
     task = Task(title=data.title, done=False)
